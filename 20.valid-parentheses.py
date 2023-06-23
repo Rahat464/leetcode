@@ -22,13 +22,13 @@ class Solution:
             else:
                 # Peek top item in stack and check that the closing bracket matches.
                 # Also check that stack is not empty
-                if len(stack) != 0 and match[stack[-1]] == bracket:
+                if stack and match[stack[-1]] == bracket:
                     stack.pop()
                 # If it does not match, it means that it is not a matching bracket
                 else: return False
         
         # If there was a mismatching bracket, it would've returned false by now
-        return True if len(stack) == 0 else False
+        return True if not stack else False
 
 # @lc code=end
 
