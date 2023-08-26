@@ -10,12 +10,10 @@ class Solution:
         n = len(nums)
         # Use arithmetic series formula to calculate sum of all integers between 0 to n
         Sn = int((n + 1) * (n / 2))
-
-        # Iterate over each integer in list and subtract it from Sn
-        for i in nums: Sn -= i
         
         # The misssing integer will be the remaining value
-        return Sn
+        # sum() is used as it is more efficient than manually iterating over list
+        return Sn - sum(nums)
         
 # @lc code=end
 
