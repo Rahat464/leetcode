@@ -13,11 +13,10 @@ class Solution:
             else: freq[c] += 1
         
         for c in t:
-            if c in freq: freq[c] -= 1
+            if c in freq and freq[c] > 0: freq[c] -= 1
             else: return c
-        
-        for k, v in freq.items():
-            if v < 0: return k
+        # for k, v in freq.items():
+        #     if v < 0: return k
             
         
 # @lc code=end
