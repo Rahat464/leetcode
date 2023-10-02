@@ -11,9 +11,10 @@ class Solution:
         slow = 0
 
         while slow < fast:
-            if numbers[slow] + numbers[fast] == target:
+            currSum = numbers[slow] + numbers[fast]
+            if currSum == target:
                 return [slow+1, fast+1]
-            elif numbers[slow] + numbers[fast] < target: slow += 1
+            elif currSum < target: slow += 1
             else: fast -= 1
         
         return [0,0]
