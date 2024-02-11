@@ -12,9 +12,8 @@ class Solution:
 
         for i, temp in enumerate(temperatures):
             while stack and temp > temperatures[stack[-1]]:
-                index = stack[-1]
+                index = stack.pop()
                 answer[index] = i - index
-                stack.pop()
             stack.append(i)
         return answer
         
