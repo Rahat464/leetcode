@@ -24,12 +24,8 @@ class Solution:
         count = 0
 
         for n in nums:
-            # Increment occurrence if it matches
-            if candidate == n:
-                count += 1
-            # Decrement if it's another value
-            else:
-                count -= 1
+            # Increment occurrence if it matches or decrement if it's another value            
+            count += 1 if candidate == n else -1
             
             # If count is negative, it means that there is a more common number
             if count == 0:
