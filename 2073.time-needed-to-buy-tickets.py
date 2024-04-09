@@ -13,7 +13,7 @@ class Solution:
             # If the person comes before kth person, they buy upto tickets[k] tickets
             if i <= k: time += min(tickets[k], n)
             # If the person comes after kth person, they buy upto tickets[k]-1 tickets
-            elif i > k: time += min(tickets[k]-1, n)
+            else: time += min(tickets[k]-1, n)
         
         return time
 # @lc code=end
