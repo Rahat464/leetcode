@@ -6,8 +6,8 @@
 
 # @lc code=start
 class Solution:
-    def longestPalindrome(self, s: str) -> int:
-
+    def longestPalindrome(self, s: str) -> int:     
+        #Solution 1:
         letters = {}
         palindrome_length = 0
 
@@ -37,6 +37,26 @@ class Solution:
 
         # If no odd values remain in the dictionary, return the even numbered length
         return palindrome_length
+
+        # Solution 2:
+        letters = [0] * 52 # 26 lowercase and 26 uppercase letters
+        res = 0
+
+        # 65-90 are ASCII values for A-Z
+        # 97-122 are ASCII values for a-z
+        for char in s:
+            ascii = ord(char)
+            if ascii >= 97: letters[ascii - 71] += 1
+            else: letters[ascii-65] += 1
         
+        # Add all even occurrences of letters to the palindrome
+        odd_inserted = False # Flag to check if an odd letter has been inserted
+        for letter in letters:
+            res += letter - letter % 2
+            if not odd_inserted and letter % 2 == 1:
+                res += 1
+                odd_inserted = True
+        
+        return res
 # @lc code=end
 
