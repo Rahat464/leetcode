@@ -15,11 +15,11 @@ class Solution:
         for word in words:
             shouldAdd = True
             
-            for c in word:
-                if c not in allowedSet:
-                    shouldAdd = False
-                    break
-                if (not shouldAdd): break
+            cPtr = 0
+            while shouldAdd and (cPtr < len(word)):
+                if word[cPtr] not in allowedSet: shouldAdd = False
+                cPtr += 1
+            
             if (shouldAdd): res += 1
         
         return res
